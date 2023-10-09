@@ -1,8 +1,8 @@
 package org.example;
 
 public class Radio {
-    public int currentRadioStation;
-    public int currentSoundVolume;
+    private int currentRadioStation;
+    private int currentSoundVolume;
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
