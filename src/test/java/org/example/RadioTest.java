@@ -7,7 +7,7 @@ public class RadioTest {
 
     @Test
     public void shouldAddRadioStationAndSwitchMax() {
-        Radio radio = new Radio(11);
+        Radio radio = new Radio(11,0,10,0,0,100,0);
         radio.setRadioStation(10);
         radio.setNextRadioStation();
         int expected = 0;
@@ -40,7 +40,7 @@ public class RadioTest {
 
     @Test
     public void shouldAddRadioStationAndSwitchMin() {
-        Radio radio = new Radio(11);
+        Radio radio = new Radio(11,0,10,10,0,100,0);
         radio.setRadioStation(0);
         radio.setPrevRadioStation();
         int expected = 10;
@@ -73,7 +73,7 @@ public class RadioTest {
 
     @Test
     public void shouldAddRadioStationAndSwitchOverMaxLimit() {
-        Radio radio = new Radio(11);
+        Radio radio = new Radio(11,0,10,10,0,100,0);
         radio.setRadioStation(10);
         radio.setRadioStation(11);
         int expected = 10;
@@ -105,7 +105,7 @@ public class RadioTest {
 
     @Test
     public void shouldAddRadioStation() {
-        Radio radio = new Radio(11);
+        Radio radio = new Radio(11,0,10,10,0,100,0);
         int expected = 11;
         int actual = radio.getNumberRadioStation();
         Assertions.assertEquals(expected, actual);
@@ -113,7 +113,7 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseMaxRadioStation() {
-        Radio radio = new Radio(11);
+        Radio radio = new Radio(11,0,10,10,0,100,0);
         int expected = 10;
         int actual = radio.getMaxRadioStation();
         Assertions.assertEquals(expected, actual);
@@ -121,7 +121,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotIncreaseMinRadioStation() {
-        Radio radio = new Radio(11);
+        Radio radio = new Radio(11,0,10,0,0,100,0);
         int expected = 0;
         int actual = radio.getMinRadioStation();
         Assertions.assertEquals(expected, actual);
