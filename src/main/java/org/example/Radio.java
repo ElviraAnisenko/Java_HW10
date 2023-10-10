@@ -1,9 +1,15 @@
 package org.example;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@Data
 public class Radio {
     private int numberRadioStation = 10;
-    private int minRadiostation = 0;
-    private int maxRadioStation = 9;
+    private int minRadioStation = 0;
+    private int maxRadioStation = numberRadioStation - 1;
     private int currentRadioStation;
     private int currentSoundVolume;
     private int maxSoundVolume = 100;
@@ -11,38 +17,78 @@ public class Radio {
 
     public Radio(int numberRadioStation) {
         this.numberRadioStation = numberRadioStation;
-        this.maxRadioStation = numberRadioStation - 1;
+        this.maxRadioStation=numberRadioStation-1;
     }
 
     public Radio() {
-    }
-
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
-
-    public int getMaxRadioStation() {
-        return maxRadioStation;
-    }
-
-    public int getMinRadioStation() {
-        return minRadiostation;
     }
 
     public int getNumberRadioStation() {
         return numberRadioStation;
     }
 
+    public void setNumberRadioStation(int numberRadioStation) {
+        this.numberRadioStation = numberRadioStation;
+    }
+
+    public int getMinRadioStation() {
+        return minRadioStation;
+    }
+
+    public void setMinRadioStation(int minRadioStation) {
+        this.minRadioStation = minRadioStation;
+    }
+
+    public int getMaxRadioStation() {
+        return maxRadioStation;
+    }
+
+    public void setMaxRadioStation(int maxRadioStation) {
+        this.maxRadioStation = maxRadioStation;
+    }
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
+
+    public void setCurrentRadioStation(int currentRadioStation) {
+        this.currentRadioStation = currentRadioStation;
+    }
+
+    public int getCurrentSoundVolume() {
+        return currentSoundVolume;
+    }
+
+    public void setCurrentSoundVolume(int currentSoundVolume) {
+        this.currentSoundVolume = currentSoundVolume;
+    }
+
+    public int getMaxSoundVolume() {
+        return maxSoundVolume;
+    }
+
+    public void setMaxSoundVolume(int maxSoundVolume) {
+        this.maxSoundVolume = maxSoundVolume;
+    }
+
+    public int getMinSoundVolume() {
+        return minSoundVolume;
+    }
+
+    public void setMinSoundVolume(int minSoundVolume) {
+        this.minSoundVolume = minSoundVolume;
+    }
+
     public void setNextRadioStation() {
         if (currentRadioStation == maxRadioStation) {
-            currentRadioStation = minRadiostation;
+            currentRadioStation = minRadioStation;
         } else {
             currentRadioStation++;
         }
     }
 
     public void setPrevRadioStation() {
-        if (currentRadioStation == minRadiostation) {
+        if (currentRadioStation == minRadioStation) {
             currentRadioStation = maxRadioStation;
         } else {
             currentRadioStation--;
@@ -53,27 +99,10 @@ public class Radio {
         if (newCurrentRadioStation > maxRadioStation) {
             return;
         }
-        if (newCurrentRadioStation < minRadiostation) {
+        if (newCurrentRadioStation < minRadioStation) {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
-    }
-
-    public int getCurrentSoundVolume() {
-        return currentSoundVolume;
-    }
-
-    public int getMaxSoundVolume() {
-        return maxSoundVolume;
-    }
-
-    public int getMinSoundVolume() {
-        return minSoundVolume;
-    }
-
-    public void setCurrentSoundVolume(int newCurrentSoundVolume) {
-
-        currentSoundVolume = newCurrentSoundVolume;
     }
 
     public void setNextSoundVolume() {
@@ -88,4 +117,3 @@ public class Radio {
         }
     }
 }
-
